@@ -1,5 +1,4 @@
 # Nesene
-nesne
 
 class MainActivity : AppCompatActivity() {
     lateinit var etAd: EditText
@@ -98,3 +97,31 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+class SonucActivity : AppCompatActivity() {
+    lateinit var tvSonuc: TextView
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_sonuc)
+        tvSonuc=findViewById(R.id.tvSonuc)
+        var gelen: Bundle? =intent.extras
+        var ad= gelen?.get("isim")
+        var cinsiyet= gelen?.get("cinsiyet")
+        var java= gelen?.get("java")
+        var kotlin= gelen?.get("kotlin")
+        var c= gelen?.get("c")
+        var csharp= gelen?.get("cSharp")
+        tvSonuc.text = "$ad cinsiyetin: $cinsiyet \nBildiğin diller : $java $kotlin $c $csharp"
+    }
+}
+
+  <TextView
+        android:id="@+id/tvSonuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
